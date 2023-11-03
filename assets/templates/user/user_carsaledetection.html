@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>About</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.min.css ' %}">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'user/css/style.css' %}">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="{% static 'user/css/responsive.css' %}">
+   <!-- fevicon -->
+   <link rel="icon" href="{% static 'user/images/fevicon.png' %}" type="image/gif" />
+   <!-- font css -->
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="{% static 'user/css/jquery.mCustomScrollbar.min.css' %}">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <style>
+   .custom{
+      background:#fe5b29;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+      color:#fff;
+      display: flex;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: auto;
+      margin-top: 2.5rem;
+      overflow: auto;
+      padding: 1rem 1.5rem;
+      }
+      .with-border {
+         border: 1px solid #ccc; 
+         box-shadow: 1px 0px 8px 0px rgb(181, 221, 221); 
+         padding: 1px;
+         width:200px;
+         height:40px;
+         margin:0 auto;
+         text-align:center;
+     }
+     select option {
+      text-align: center;
+    }
+   </style>
+    
+ 
+</head>
+
+<body>
+   <!-- header section start -->
+   <div class="header_section">
+      <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'userdashboard' %}"><img src="{% static 'user/images/fig1.PNG' %}"
+               style="display: inline-block; border-radius: 50%; height:150px; width:180px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'userdashboard' %}">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'car_predict' %}">Car Sales Prediction</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'car_model' %}">Car Model Prediction </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'feedback' %}">Feedback</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'user_login' %}">Logout</a>
+                  </li>
+               </ul>
+               <form class="form-inline my-2 my-lg-0">
+               </form>
+            </div>
+         </nav>
+      </div>
+   </div>
+   <!-- header section end -->
+   <div class="call_text_main">
+      <div class="container">
+         <div class="call_taital">
+            <div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
+                     class="padding_left_15">Hyderabad</span></a></div>
+            <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
+                     class="padding_left_15">(+91) 8555887986</span></a></div>
+            <div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
+                     class="padding_left_15">info@codebook.in</span></a></div>
+         </div>
+      </div>
+   </div>
+   <!-- about section start -->
+   <div style="padding-top:100px; padding-bottom:100px;">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-container" style="margin-top:100px; ">
+               <div class=" card-body">
+                     <img src="{% static 'user/images/pic11.PNG' %}" class="card-img-top" alt="Your Image" style="width:900px; height:450px; border-radius:100%;">
+               </div>
+            </div>
+         </div>
+         <div class=" row col-md-6 align-items-center"style=" margin-top: 100px; width:1200px; height:100px;border-radius:20%;">
+            <div class="col-4 card box card-container align-items-center col-md-8">
+               <div class="row  card-body align-items-center">
+                     <form method = 'post' enctype = 'multipart/form-data'id="form">
+                     {% csrf_token %}
+                     <h3 class="text-center" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman'; color: #fe5b29; font-size: 30px;">Car Sales Prediction</h3>
+
+                     <div class="d-flex justify-content-between">
+                        <div class="col-md-6">
+                            <label class="text-left">Old:</label>
+                            <input name="field1" type="number" class="form-control input-field" style="box-shadow: 1px 0px 8px 0px rgb(181, 221, 221)" placeholder="Enter your car age" required min="5" max="20" required />
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <label class="text-left">Present_Price:</label>
+                            <input name="field2" type="text" class="form-control input-field" style="box-shadow: 1px 0px 8px 0px rgb(181, 221, 221)" placeholder="Type here..." required />
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-6">
+                            <label class="text-left">Kms_Driven:</label>
+                            <input name="field3" type="text" class="form-control input-field" style="box-shadow: 1px 0px 8px 0px rgb(181, 221, 221)" placeholder="Type here..." required />
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <label class="text-left">Fuel_Type:</label>
+                            <select name="field4" id="cars" class="form-control input-field with-border" required>
+                                <option selected style="line-height: 1;">{{ tet }}</option>
+                                <option value="0">CNG</option>
+                                <option value="1">Diesel</option>
+                                <option value="2">Petrol</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-6">
+                            <label class="text-center">Seller Type:</label>
+                            <select name="field5" id="car" class="form-control with-border" required>
+                                <option selected style="line-height: 1;">{{ get }}</option>
+                                <option value="0">Dealer</option>
+                                <option value="1">Individual</option>
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <label class="text-center">Transmission:</label>
+                            <select name="field6" id="car" class="form-control with-border" required>
+                                <option selected style="line-height: 1;">{{ gen }}</option>
+                                <option value="0">Manual</option>
+                                <option value="1">Automatic</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="col-md-6">
+                            <label class="text-left">Owner:</label>
+                            <select name="field7" id="ca" class="form-control with-border" required>
+                                <option selected style="line-height: 1;"></option>
+                                <option value="3">3</option>
+                                <option value="1">1</option>
+                                <option value="0">0</option>
+                            </select>
+                        </div>
+                    </div>
+                        <a href="{% url 'predict_result' %}"  >
+                           <input type='submit' class="custom" value="Predict" style="border-radius:10%; padding-top:10px;padding-bottom:10px;"/>
+                        </a>
+                     </form>
+                     </div>
+               </div><!-- Your form content here -->
+            </div>
+         </div>
+      </div>
+   </div>
+
+  <!-- footer section start -->
+  <div class="footer_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="footeer_logo"><img src="{% static 'user/images/fig1.PNG' %}"
+                  style="display: inline-block; border-radius: 50%; height:150px; width:180px;"></div>
+         </div>
+      </div>
+      <div class="footer_section_2">
+         <div class="row">
+            <div class="col">
+               <h4 class="footer_taital">Subscribe Now</h4>
+               <p class="footer_text">There are many variations of passages of codebook.in available,</p>
+               <div class="form-group">
+                  <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment"
+                     name="Enter Your Email"></textarea>
+                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+               </div>
+            </div>
+            <div class="col">
+               <h4 class="footer_taital">Information</h4>
+               <p class="lorem_text">There are many variations of passages of codebook.in available, but the majority
+               </p>
+            </div>
+            <div class="col">
+               <h4 class="footer_taital">Helpful Links</h4>
+               <p class="lorem_text">There are many variations of passages of codebook.in available, but the majority
+               </p>
+            </div>
+            <div class="col">
+               <h4 class="footer_taital">Invesments</h4>
+               <p class="lorem_text">There are many variations of passages of codebook.inavailable, but the majority
+               </p>
+            </div>
+            <div class="col">
+               <h4 class="footer_taital">Contact Us</h4>
+               <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
+                        class="padding_left_15">Hyderabad</span></a></div>
+               <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
+                        class="padding_left_15">(+91) 8555887986</span></a></div>
+               <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
+                        class="padding_left_15">info@codebook.in</span></a></div>
+               <div class="social_icon">
+                  <ul>
+                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- footer section end -->
+<!-- copyright section start -->
+<div class="copyright_section">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <p class="copyright_text">2023 All Rights Reserved. Design by Codebook.in</p>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- copyright section end -->
+<!-- Javascript files-->
+<script src="{% static 'user/js/jquery.min.js' %}"></script>
+<script src="{% static 'user/js/popper.min.js' %}"></script>
+<script src="{% static 'user/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'user/js/jquery-3.0.0.min.js' %}"></script>
+<script src="{% static 'user/js/plugin.js' %}"></script>
+<!-- sidebar -->
+<script src="{% static 'user/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<script src="{% static 'user/js/custom.js' %}"></script>
+<script>
+   $(document).on('click', '.flip', function () {
+      let card = $(this).closest('.card');
+      if (card.hasClass('flip-it')) card.removeClass('flip-it');else
+      card.addClass('flip-it');
+    });
+    
+    
+    $('.card').each(function () {
+      let href = $(this).data('href');
+      $(this).find('.image').css({
+        backgroundImage: ['url(', href, ')'].join('') });
+    
+    });
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+{% for message in messages %}
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <script>swal({
+              title: "Success!",
+              text: "{{message}}",
+              icon: "success",
+              button: "OK",
+          });
+      </script>
+  
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+      <script>swal({
+              title: "Warning :)",
+              text: "{{message}}",
+              icon: "warning",
+              button: "OK",
+          
+          });
+      </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+      <script>swal({
+              title: "info :)",
+              text: "{{message}}",
+              icon: "info",
+              button: "OK",
+          });
+      </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <script>swal({
+              title: "error :)",
+              text: "{{message}}",
+              icon: "error",
+              button: "OK",
+          });
+      </script>
+  {% endif %}
+{% endfor %}
+{% endif %}
+</body>
+
+</html>

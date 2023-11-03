@@ -1,0 +1,387 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Admin</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="{% static 'admin/images/fevicon.png' %}" type="image/png"/>
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}"/>
+      <!-- site css -->
+      <link rel="stylesheet" href="{% static 'admin/css/style.css' %}"/>
+      <!-- responsive css -->
+      <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}"/>
+      <!-- color css -->
+      <link rel="stylesheet" href="{% static 'admin/css/colors.css' %}"/>
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="{% static 'admin/css/bootstrap-select.css' %}"/>
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="{% static 'admin/css/perfect-scrollbar.css' %}"/>
+      <!-- custom css -->
+      <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}"/>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+         .custom{
+            color:  #ff5722;
+            background-color:  #ff5722;
+            color: #fff;
+          }
+      </style>
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"><img class="logo_icon img-responsive" src="{% static 'admin/images/logo/logo_icon.png' %}" alt="img" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="img" /></div>
+                        <div class="user_info">
+                           <h6>Admin</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4><a href="{% url 'admin_dashboard' %}" style="color: white; text-decoration: none;">Dashboard</a></h4>
+                  <ul class="list-unstyled components">
+                     <li class="active">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>User Management</span></a>
+                        <ul class="collapse list-unstyled" id="dashboard">
+                           <li>
+                              <a href="{% url 'pending_users' %}">> <span>Pending Users</span></a>
+                           </li>
+                           <li>
+                              <a href="{% url 'all_users' %}">> <span>All Users</span></a>
+                           </li>
+                        </ul>
+                     </li>
+                     
+                     <li>
+                        <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Dataset</span></a>
+                        <ul class="collapse list-unstyled" id="element">
+                           <li><a href="{% url 'upload_dataset' %}">> <span>Upload Dataset</span></a></li>
+                           <li><a href="{% url 'viewdataset' %}">> <span>View Datasset</span></a></li>
+                        </ul>
+                     </li>
+                    
+                     <li>
+                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Algorithms</span></a>
+                        <ul class="collapse list-unstyled" id="apps">
+                           <li><a href="{% url 'xgbalgm' %}">> <span>XG Boost Algorithm</span></a></li>
+                           <li><a href="{% url 'adabalgm' %}">> <span>ADA Boost Algorithm</span></a></li>
+                           <li><a href="{% url 'knnalgm' %}">> <span>KNN Algorithm</span></a></li>
+                           <li><a href="{% url 'svralgm' %}">> <span>SVR Algorithm</span></a></li>
+                           <li><a href="{% url 'dtalgm' %}">> <span>Decission Tree Algorithm</span></a></li>
+                           <li><a href="{% url 'linear_regression' %}">> <span>Linear Regression</span></a></li>
+                           <li><a href="{% url 'random' %}">> <span>Random Forest</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#boat" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Models</span></a>
+                        <ul class="collapse list-unstyled" id="boat">
+                           <li><a href="{% url 'train_test' %}">> <span>Train & Test Model</span></a></li>
+                           <li><a href="{% url 'cnn_model' %}">> <span>Cnn model</span></a></li>
+                        </ul>
+                     </li>
+
+                     <li class="active">
+                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Graph Analysis</span></a>
+                        <ul class="collapse list-unstyled" id="additional_page">
+                           <li>
+                              <a href="{% url 'admin_graph' %}">> <span>Comparison Graph</span></a>
+                           </li>
+                           
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#ele" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>User Feedbacks</span></a>
+                        <ul class="collapse list-unstyled" id="ele">
+                           <li><a href="{% url 'user_feedbacks' %}">> <span>Feedback</span></a></li>
+                           <li><a href="{% url 'user_sentiment' %}">> <span>Sentiment Analysis</span></a></li>
+                           <li><a href="{% url 'user_graph' %}">> <span>Feedback Graph Analysis</span></a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="index.html" style="display: inline-block; border-radius: 50%;">
+                              <img class="img-responsive round-img" src="{% static 'admin/images/logo/logo.PNG' %}" alt="img" style="height: 50px; width: 50px; border-radius: 50%;" />
+                            </a>
+                            
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul>
+                                 <li><a href="{% url 'admin_login' %}"><i class="fa fa-bell-o"></i><span class="badge">Logout</span></a></li>
+                                 <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge"></span></a></li>
+                              </ul>
+                             
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Dashboard</h2>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-12 tablebg">
+                                <div class="card text-center">
+                                    <div class="table-responsive pt-3">
+                                        <table class="table table-striped project-orders-table">
+                                            <thead>
+                                                <tr class='custom' >
+                                                    <th style="text-align:center; font-weight:bold;">S.No</th>
+                                                    <th style="text-align:center; font-weight:bold;">User Profile</th>
+                                                    <th style="text-align:center; font-weight:bold;">Name</th>
+                                                    <th style="text-align:center; font-weight:bold;">Email</th>
+                                                    <th style="text-align:center; font-weight:bold;">Phone Number</th>
+                                                    <th style="text-align:center; font-weight:bold;">Age</th>
+                                                    <th style="text-align:center; font-weight:bold;">Status</th>
+                                                    <th style="text-align:center; font-weight:bold;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for a in user %}
+                                                    <tr class="">
+                                                        <td>{{a.User_id}}</td>
+                                                        <td><img src="media/{{a.Image}}" style="border-radius: 50%; width:50px; height:50px;"/> </td>
+                                                        <td>{{a.Name}}</td>
+                                                        <td>{{a.Email}}</td>
+                                                        <td>{{a.Phone}}</td>
+                                                        <td>{{a.Age}}</td>
+                                                        <td id = 'status' class="">
+                                                            {% if a.User_Status == "accepted" %}
+                                                            <label class="text-success">accepted</label>
+                                                            {% elif a.User_Status == "removed" %} 
+                                                            <label class="text-danger">rejected</label>
+                                                            {% else %}
+                                                            <label class="text-warning">pending</label>
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>
+                                                        <div>
+                                                            {% comment %} <a href = "{% url 'change_status' a.User_id %}">
+                                                                <button type="button" class="btn btn-primary btn-sm btn-icon-text mr-3">
+                                                                    Change Status
+                                                                    <i class="fa fa-circle-info ml-2" style="font-size: 15px;"></i>
+                                                                </button>
+                                                            </a> {% endcomment %}
+                                                            <a href="{% url 'delete_user' a.User_id %}">
+                                                                <button onclick='return myFunction()' class="btn btn-danger btn-sm btn-icon-text">
+                                                                    Delete
+                                                                    <i class="fa fa-trash-can ml-2" style="font-size: 15px;"></i>                          
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                        </td>
+                                                     </tr>
+                                                        <script>
+                                                            function myFunction() {
+                                                                let text = "Delete confirm";
+                                                                if (confirm(text) == true) {
+                                                                } 
+                                                                else {
+                                                                    return false;
+                                                                }
+                                                            }
+                                                        </script>
+                                                    {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        {% comment %} Pagination start {% endcomment %}
+                                            <nav aria-label="Page navigation example ">
+                                                <ul class="pagination ml-2">
+                                                    {% if user.has_previous %}
+                                                        <!-- <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li> -->
+                                                        <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ user.previous_page_number }}">Previous</a></li>
+                                                    {% endif %}
+                                                    {% if user.has_next %}
+                                                    <li class="page-item"><a class="page-link bg-info text-white" href="?page={{ user.next_page_number }}">Next</a></li>
+                                                    <!-- <li class="page-item"><a class="page-link" href="?page={{ r.paginator.num_pages }}">Last &raquo;</a></li> -->
+                                                    {% endif %}
+                                                </ul>
+                                                Page {{ user.number }} of {{ user.paginator.num_pages }}.
+                                            </nav>
+                                        {% comment %} Pagination End {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                        
+                     </div>
+                 
+                     
+                     <div class="row column3">
+                        <!-- testimonial -->
+                        <div class="col-md-12">
+                           <div class="dark_bg full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>Codebook.in</h2>
+                                 </div>
+                              </div>
+                              <div class="full graph_revenue">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="content testimonial">
+                                          <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+                                             <!-- Wrapper for carousel items -->
+                                             <div class="carousel-inner">
+                                                <div class="item carousel-item active">
+                                                   <div class="img-box"><img src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="img"></div>
+                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                                   <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
+                                                </div>
+                                                <div class="item carousel-item">
+                                                   <div class="img-box"><img src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="img"></div>
+                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                                   <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
+                                                </div>
+                                                <div class="item carousel-item">
+                                                   <div class="img-box"><img src="{% static 'admin/images/layout_img/user_img.jpg' %}" alt="img"></div>
+                                                   <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
+                                                   <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
+                                                </div>
+                                             </div>
+                                             <!-- Carousel controls -->
+                                             <a class="carousel-control left carousel-control-prev" href="#testimonial_slider" data-slide="prev">
+                                             <i class="fa fa-angle-left"></i>
+                                             </a>
+                                             <a class="carousel-control right carousel-control-next" href="#testimonial_slider" data-slide="next">
+                                             <i class="fa fa-angle-right"></i>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end testimonial -->
+                        
+                     </div>
+                     
+                        
+                  </div>
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer">
+                        <p>Copyright © 2023 Designed by codebook.in. All rights reserved.<br><br>
+                           Distributed By: Codebook</a>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+      <script src="{% static 'admin/js/popper.min.js' %}"></script>
+      <script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+      <!-- wow animation -->
+      <script src="{% static 'admin/js/animate.js' %}"></script>
+      <!-- select country -->
+      <script src="{% static 'admin/js/bootstrap-select.js' %}"></script>
+      <!-- owl carousel -->
+      <script src="{% static 'admin/js/owl.carousel.js' %}"></script> 
+      <!-- chart js -->
+      <script src="{% static 'admin/js/Chart.min.js' %}"></script>
+      <script src=" {% static 'admin/js/Chart.bundle.min.js' %}"></script>
+      <script src=" {% static 'admin/js/utils.js' %}"></script>
+      <script src=" {% static 'admin/js/analyser.js' %}"></script>
+      <!-- nice scrollbar -->
+      <script src=" {% static 'admin/js/perfect-scrollbar.min.js' %}"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="{% static 'admin/js/chart_custom_style1.js' %}"></script>
+      <script src="{% static 'admin/js/custom.js' %}"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      {% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <script>swal({
+                    title: "Success!",
+                    text: "{{message}}",
+                    icon: "success",
+                    button: "OK",
+                });
+            </script>
+        
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <script>swal({
+                    title: "Warning :)",
+                    text: "{{message}}",
+                    icon: "warning",
+                    button: "OK",
+                
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <script>swal({
+                    title: "info :)",
+                    text: "{{message}}",
+                    icon: "info",
+                    button: "OK",
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <script>swal({
+                    title: "error :)",
+                    text: "{{message}}",
+                    icon: "error",
+                    button: "OK",
+                });
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+   </body>
+</html>

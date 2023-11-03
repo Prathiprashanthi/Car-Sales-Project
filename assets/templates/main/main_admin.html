@@ -1,0 +1,299 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>About</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.min.css ' %}">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'user/css/style.css' %}">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="{% static 'user/css/responsive.css' %}">
+   <!-- fevicon -->
+   <link rel="icon" href="{% static 'user/images/fevicon.png' %}" type="image/gif" />
+   <!-- font css -->
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="{% static 'user/css/jquery.mCustomScrollbar.min.css' %}">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <style>
+      .gradient-custom-2 {
+         /* fallback for old browsers */
+         background: #fccb90;
+
+         /* Chrome 10-25, Safari 5.1-6 */
+         background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+         background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      }
+
+      @media (min-width: 768px) {
+         .gradient-form {
+            height: 100vh !important;
+         }
+      }
+
+      @media (min-width: 769px) {
+         .gradient-custom-2 {
+            border-top-right-radius: .3rem;
+            border-bottom-right-radius: .3rem;
+         }
+      }
+
+      p {
+         font-size: 20px;
+         /* Adjust the font size as needed */
+         font-weight: bold;
+         margin-bottom: 20px;
+      }
+
+      h4 {
+         font-size: 20px;
+         /* Adjust the font size as needed */
+         font-weight: bold;
+         margin-bottom: 20px;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- header section start -->
+   <div class="header_section">
+      <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="{% static 'user/images/fig2.PNG' %}" style="height:130px;width:250px;border-radius:100%;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'user_login' %}">User</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'admin_login' %}">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'about_us' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'contact_us' %}">Contact</a>
+                  </li>
+               </ul>
+               <form class="form-inline my-2 my-lg-0">
+               </form>
+            </div>
+         </nav>
+      </div>
+   </div>
+   <!-- header section end -->
+   <div class="call_text_main">
+      <div class="container">
+         <div class="call_taital">
+            <div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
+                     class="padding_left_15">Hyderabad</span></a></div>
+            <div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
+                     class="padding_left_15">(+91) 8555887986</span></a></div>
+            <div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
+                     class="padding_left_15">info@codebook.in</span></a></div>
+         </div>
+      </div>
+   </div>
+   <!-- about section start -->
+   <div class="container py-4 h-500">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+         <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+               <div class="row g-0">
+                  <div class="col-lg-6">
+                     <div class="card-body p-md-1 mx-md-4">
+
+                        <div class="text-center">
+                           <img src="{% static 'user/images/pic3.PNG' %}" style="width: 185px; border-radius: 100%;"
+                              alt="logo">
+                           <h4 class="mt-1 mb-8 pb-1">Admin</h4>
+                        </div>
+
+                        <form method="post" enctype='multipart/form-data' id="form" name='admin'>
+                           {% csrf_token %}
+                           <p>Please Admin Login to your account</p>
+
+                           <div class="form-outline mb-4">
+                              <input type="email"  name="aname" class="form-control" placeholder="email"/>
+                              <label class="form-label" for="form2Example11">Username</label>
+                           </div>
+
+                           <div class="form-outline mb-4">
+                              <input type="password"  name="apassword" class="form-control" placeholder="password" />
+                              <label class="form-label" for="form2Example22">Password</label>
+                           </div>
+
+                           <div class="text-center pt-1 mb-5 pb-1">
+                              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Login</button>
+                           </div>
+
+
+
+                        </form>
+
+                     </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                        <h4 class="mb-4">We are more than just a company</h4>
+                        <p class="small mb-0">Wide selection of vehicles to choose from.
+                           Assistance with financing, making the buying process more accessible.
+                           Opportunity to trade in old vehicles.
+                           Professional maintenance and repair services.
+                           Expert guidance from knowledgeable sales representatives.
+                           Options for customization and upgrades.
+                           Access to warranties and extended warranty coverage..</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- about section end -->
+   <!-- footer section start -->
+   <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="footeer_logo"><img src="{% static 'user/images/fig2.PNG' %}" style="height:130px;width:250px;border-radius:100%;"></div>
+            </div>
+         </div>
+         <div class="footer_section_2">
+            <div class="row">
+               <div class="col">
+                  <h4 class="footer_taital">Subscribe Now</h4>
+                  <p class="footer_text">There are many variations of passages of codebook.in available,</p>
+                  <div class="form-group">
+                     <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment"
+                        name="Enter Your Email"></textarea>
+                     <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                  </div>
+               </div>
+               <div class="col">
+                  <h4 class="footer_taital">Information</h4>
+                  <p class="lorem_text">There are many variations of passages of codebook.in available, but the majority
+                  </p>
+               </div>
+               <div class="col">
+                  <h4 class="footer_taital">Helpful Links</h4>
+                  <p class="lorem_text">There are many variations of passages of codebook.in available, but the majority
+                  </p>
+               </div>
+               <div class="col">
+                  <h4 class="footer_taital">Invesments</h4>
+                  <p class="lorem_text">There are many variations of passages of codebook.inavailable, but the majority
+                  </p>
+               </div>
+               <div class="col">
+                  <h4 class="footer_taital">Contact Us</h4>
+                  <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
+                           class="padding_left_15">Hyderabad</span></a></div>
+                  <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
+                           class="padding_left_15">(+91) 8555887986</span></a></div>
+                  <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
+                           class="padding_left_15">info@codebook.in</span></a></div>
+                  <div class="social_icon">
+                     <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer section end -->
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <p class="copyright_text">2023 All Rights Reserved. Design by Codebook.in</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- copyright section end -->
+   <!-- Javascript files-->
+   <script src="{% static 'user/js/jquery.min.js' %}"></script>
+   <script src="{% static 'user/js/popper.min.js' %}"></script>
+   <script src="{% static 'user/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'user/js/jquery-3.0.0.min.js' %}"></script>
+   <script src="{% static 'user/js/plugin.js' %}"></script>
+   <!-- sidebar -->
+   <script src="{% static 'user/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+   <script src="{% static 'user/js/custom.js' %}"></script>
+   
+      {% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <script>swal({
+                    title: "Success!",
+                    text: "{{message}}",
+                    icon: "success",
+                    button: "OK",
+                });
+            </script>
+        
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <script>swal({
+                    title: "Warning :)",
+                    text: "{{message}}",
+                    icon: "warning",
+                    button: "OK",
+                
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            <script>swal({
+                    title: "info :)",
+                    text: "{{message}}",
+                    icon: "info",
+                    button: "OK",
+                });
+            </script>
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <script>swal({
+                    title: "error :)",
+                    text: "{{message}}",
+                    icon: "error",
+                    button: "OK",
+                });
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+   
+</body>
+
+</html>
